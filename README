@@ -1,0 +1,60 @@
+# firesymfony plugin for symfony 1.0.x #
+
+## Overview ##
+
+This plugin extends the web debug toolbar to send the debug information as a JSON object to the FireSymfony Firebug extension.
+
+## Installation ##
+
+    cd my_project
+    php symfony plugin-install http://plugins.symfony-project.com/firesymfonyPlugin
+    php symfony cc 
+
+
+### Requirements ###
+
+Client Side:
+
+* [Firefox](http://www.getfirefox.com/ "Firefox") - Only Works with the Firefox browser :)
+* [Firebug](http://www.getfirebug.com/ "Firebug") - Of course you need Firebug.
+* [FireSymfony](https://addons.mozilla.org/en-US/firefox/addon/9096/ "FireSymfony") - Also install the FireSymfony extension for Firefox.
+
+Server Side:
+* the JSON extension for PHP is required to use this plugin. See: [JSON extension](http://www.php.net/manual/en/book.json.php "JSON extension")
+
+#### NOTES ####	
+	
+* If you can provide feedback on the FireSymfony extension on the mozilla add-ons website, it will be moved as "public" soon. That means the users won't need to login to the mozilla website to download the extension.
+* At this time the plugin only shows information for the following tabs: Configuration & Request Variables, Logs & Messages, Memory Usage and Timers.
+* We are trying to provide support for all versions of symfony.
+	
+## Usage ##
+
+### on symfony 1.0 do the following: ###
+
+Edit the logging.yml file of your application and change the following entry:
+
+    sf_web_debug:
+      class: fsWebDebugLogger
+
+Clear the cache.
+      
+### on symfony 1.1 do the following: ###
+    
+    web_debug_class: fsWebDebugForSf11
+
+Clear the cache.
+
+### on symfony 1.2 do the following: ###
+
+Edit the factories.yml file of your application and change the following entry:
+
+    web_debug_class: fsWebDebugForSf12
+
+Clear the cache.
+      
+Next time you load the page, it will show the web debug information on the "syfmony" panel of Firebug.
+
+## License ##
+
+For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
